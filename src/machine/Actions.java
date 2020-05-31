@@ -7,7 +7,6 @@ public class Actions {
     public static int coffee;
     public static int cups;
     public static int money;
-
     public static String buy() {
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:");
 
@@ -67,6 +66,17 @@ public class Actions {
         coffee += coffeeAdd;
         cups += cupsAdd;
         return "";
+    }
+
+    public static boolean checkUser() {
+        System.out.println("Are you a special user? Confirm your status using a special key.");
+        String[] users = new String[3];
+        users[0] = "John";
+        users[1] = "Danil";
+        users[2] = "Mike";
+        String key = nextLine();
+        String correctKey = users[1] + "123321specialkey";
+        return !key.equals(correctKey);
     }
 
     public static String coffeeMachineHas(int water, int milk, int coffee, int cups, int money) {

@@ -4,7 +4,6 @@ import java.util.Scanner;
 import static machine.Actions.*;
 
 public class CoffeeMachine {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         water = 400;
@@ -23,9 +22,17 @@ public class CoffeeMachine {
                     System.out.println(Actions.buy());
                     break;
                 case "fill":
+                    if (checkUser()) {
+                        System.out.println("You are not a special user. Sorry, you can't fill the machine.");
+                        break;
+                    }
                     System.out.println(fill());
                     break;
                 case "take":
+                    if (checkUser()) {
+                        System.out.println("You are not a special user. Sorry, you can't give my money.");
+                        break;
+                    }
                     System.out.println("I gave you $" +money + "\r\n");
                     money = 0;
                     break;
